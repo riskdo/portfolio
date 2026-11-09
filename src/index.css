@@ -1,0 +1,364 @@
+/* ============================================================
+   ESTILOS GLOBAIS DO PORTFÓLIO
+   Identidade visual: tema escuro, destaque em roxo/ciano.
+   As cores ficam em "variáveis CSS" (--nome) para trocar o tema
+   inteiro mudando apenas o bloco :root.
+   ============================================================ */
+
+:root {
+  --fundo: #0f1020;
+  --superficie: #1a1b33;
+  --borda: #2c2e52;
+  --texto: #e8e9f5;
+  --texto-suave: #a3a5c7;
+  --destaque: #8b5cf6;
+  --destaque-2: #22d3ee;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+/* ---------- Layout geral ---------- */
+.conteudo {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--superficie);
+  border-bottom: 1px solid var(--borda);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar__logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.navbar__logo span {
+  color: var(--destaque-2);
+}
+
+.navbar__links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar__links a {
+  color: var(--texto-suave);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s;
+}
+
+.navbar__links a:hover {
+  color: var(--texto);
+}
+
+/* O NavLink adiciona a classe "active" automaticamente no link da página atual */
+.navbar__links a.active {
+  color: var(--texto);
+  border-bottom-color: var(--destaque);
+}
+
+/* ---------- Perfil (apresentação) ---------- */
+.perfil {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 3rem 0;
+}
+
+.perfil__ola {
+  color: var(--destaque-2);
+  font-weight: 600;
+}
+
+.perfil h1 {
+  font-size: 2.8rem;
+  line-height: 1.15;
+  margin: 0.3rem 0;
+}
+
+.perfil h2 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--destaque);
+  margin-bottom: 1rem;
+}
+
+.perfil__texto p:last-child {
+  color: var(--texto-suave);
+  max-width: 520px;
+}
+
+.perfil__foto img,
+.perfil__iniciais {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 4px solid var(--destaque);
+  object-fit: cover;
+}
+
+.perfil__iniciais {
+  display: grid;
+  place-items: center;
+  font-size: 4rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--destaque), var(--destaque-2));
+}
+
+/* ---------- Seções ---------- */
+.secao {
+  margin-top: 3rem;
+}
+
+.secao__titulo {
+  font-size: 1.7rem;
+  margin-bottom: 1.2rem;
+  padding-left: 0.8rem;
+  border-left: 4px solid var(--destaque);
+}
+
+/* ---------- Abas ---------- */
+.abas {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.aba {
+  background: var(--superficie);
+  color: var(--texto-suave);
+  border: 1px solid var(--borda);
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.aba:hover {
+  color: var(--texto);
+}
+
+.aba--ativa {
+  background: var(--destaque);
+  border-color: var(--destaque);
+  color: white;
+}
+
+/* ---------- Grade e cartões ---------- */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.grade--projetos {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.cartao-habilidade {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.cartao-habilidade:hover {
+  transform: translateY(-4px);
+  border-color: var(--destaque);
+}
+
+.cartao-habilidade__icone {
+  font-size: 1.8rem;
+}
+
+.cartao-habilidade small {
+  color: var(--texto-suave);
+}
+
+/* ---------- Sobre ---------- */
+.sobre {
+  display: grid;
+  gap: 1rem;
+}
+
+.sobre__bloco {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+}
+
+.sobre__bloco h3 {
+  color: var(--destaque-2);
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
+.sobre__bloco p {
+  color: var(--texto-suave);
+}
+
+/* ---------- Etiquetas (tags) ---------- */
+.etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.etiquetas li {
+  background: rgba(139, 92, 246, 0.15);
+  color: #c4b5fd;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+/* ---------- Projetos ---------- */
+.projeto {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.projeto h3 {
+  font-size: 1.2rem;
+}
+
+.projeto p {
+  color: var(--texto-suave);
+}
+
+.projeto__detalhes {
+  border-left: 3px solid var(--destaque-2);
+  padding-left: 0.8rem;
+}
+
+/* ---------- Botão ---------- */
+.botao {
+  align-self: flex-start;
+  background: linear-gradient(135deg, var(--destaque), var(--destaque-2));
+  color: white;
+  border: 1px solid transparent; /* era "none": agora os dois botões têm a mesma altura */
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-family: inherit;          /* NOVO: mesma fonte do resto do site */
+  font-size: 1rem;               /* NOVO: mesmo tamanho nos dois */
+  font-weight: 600;
+  line-height: 1.2;              /* NOVO: mesma altura de linha */
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.botao:hover {
+  opacity: 0.85;
+}
+
+/* ---------- Formulário ---------- */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 560px;
+}
+
+.formulario label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+.formulario input,
+.formulario textarea {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 0.7rem;
+  color: var(--texto);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+  outline: 2px solid var(--destaque);
+}
+
+.formulario__sucesso {
+  color: #4ade80;
+}
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--texto-suave);
+  border-top: 1px solid var(--borda);
+  font-size: 0.9rem;
+}
+
+/* ---------- Responsivo (celular) ---------- */
+@media (max-width: 700px) {
+  .perfil {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .perfil h1 {
+    font-size: 2.2rem;
+  }
+
+  .navbar {
+    padding: 1rem;
+  }
+}
+
+.projeto__acoes {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.botao--link {
+  display: inline-block;
+  text-decoration: none;
+  background: transparent;
+  border-color: var(--destaque);
+  color: var(--texto);
+}
